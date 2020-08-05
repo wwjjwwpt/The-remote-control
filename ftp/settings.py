@@ -26,7 +26,7 @@ STATICFILES_DIRS = [
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'a0q16=f!l(+tebghj9gc9(xxca@ozu-*ocx%v71&34#)x0-7l4'
+SECRET_KEY = '*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -137,8 +137,8 @@ SITE_ID = 1
 # email setting
 SEND_ACTIVATION_EMAIL = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-REGISTRATION_DEFAULT_FROM_EMAIL = '553060364@qq.com' # your email address
-EMAIL_HOST_PASSWORD = 'quzmipbkdzzvbdfb' # your password
+REGISTRATION_DEFAULT_FROM_EMAIL = '*' # your email address
+EMAIL_HOST_PASSWORD = '*' # your password
 EMAIL_HOST = 'smtp.qq.com'  # Host for sending email.
 EMAIL_PORT = 465  # Port for sending email.
 EMAIL_HOST_USER = REGISTRATION_DEFAULT_FROM_EMAIL
