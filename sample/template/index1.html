@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<style>
+    button{
+        width: 25%;
+    }
+</style>
+<head>
+        <title>Demo of ACE Editor</title>
+        <!--导入js库-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
+        <script>
+function displayDate(event){
+    event = window.event || event;
+    var srcEle = event.target || event.srcElement;
+    console.log(srcEle.value)
+    document.getElementById('save').value=srcEle.value
+	var httpRequest = new XMLHttpRequest();//第一步：创建需要的对象
+        url = 'http://127.0.0.1:8000/readf'
+        httpRequest.open('POST', url, true); //第二步：打开连接
+        httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");//设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
+        var obj = { url:srcEle.value}
+        httpRequest.send(JSON.stringify(obj));//发送请求 将情头体写在send中
+        /**
+         * 获取数据后的处理程序
+         */
+        httpRequest.onreadystatechange = function () {
+            if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+                var json = httpRequest.responseText;//获取到json字符串，还需解析
+                editor.setValue(json);
+            }
+        };
+}
+
+function changecode(event){
+    event = window.event || event;
+    console.log(editor.getValue());
+    var code = editor.getValue()
+    var srcEle = event.target || event.srcElement;
+    console.log(srcEle.value)
+	var httpRequest = new XMLHttpRequest();//第一步：创建需要的对象
+        url = 'http://127.0.0.1:8000/putcode'
+        httpRequest.open('POST', url, true); //第二步：打开连接
+        httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");//设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
+        var obj = { url:srcEle.value,content:code}
+        httpRequest.send(JSON.stringify(obj));//发送请求 将情头体写在send中
+        /**
+         * 获取数据后的处理程序
+         */
+        httpRequest.onreadystatechange = function () {
+            if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+                var json = httpRequest.responseText;//获取到json字符串，还需解析
+            }
+        };
+}
+</script>
+    <script>
+function disp_prompt(event)
+
+{
+event = window.event || event;
+var srcEle = event.target || event.srcElement;
+root = srcEle.value
+console.log(srcEle.value)
+var name=prompt("请输入文件夹名称")
+if(name!=null && name!="")
+{
+    var httpRequest = new XMLHttpRequest();//第一步：创建需要的对象
+    url = 'http://127.0.0.1:8000/mkdirf'
+    httpRequest.open('POST', url, true); //第二步：打开连接
+    httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");//设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
+    var obj = { fname:name,froot:root}
+    httpRequest.send(JSON.stringify(obj));//发送请求 将情头体写在send中
+    httpRequest.onreadystatechange = function () {
+        if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+            var json = httpRequest.responseText;//获取到json字符串，还需解析
+            console.log(json)
+            window.location.reload();
+            }
+        };
+}
+else{
+    alert("文件名不能为空")
+}
+
+};
+function disp_prfile(event)
+
+{
+event = window.event || event;
+var srcEle = event.target || event.srcElement;
+root = srcEle.value
+console.log(srcEle.value)
+var name=prompt("请输入文件")
+if(name!=null && name!="")
+{
+    var httpRequest = new XMLHttpRequest();//第一步：创建需要的对象
+    url = 'http://127.0.0.1:8000/mkfile'
+    httpRequest.open('POST', url, true); //第二步：打开连接
+    httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");//设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
+    var obj = { fname:name,froot:root}
+    httpRequest.send(JSON.stringify(obj));//发送请求 将情头体写在send中
+    httpRequest.onreadystatechange = function () {
+        if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+            var json = httpRequest.responseText;//获取到json字符串，还需解析
+            console.log(json)
+            window.location.reload();
+            }
+        };
+}
+else{
+    alert("文件名不能为空")
+}
+
+};
+
+function deletef(event)
+{
+event = window.event || event;
+var srcEle = event.target || event.srcElement;
+root = srcEle.value
+console.log(srcEle.value);
+var r = confirm("确认删除")
+if(r == true)
+{
+    var httpRequest = new XMLHttpRequest();//第一步：创建需要的对象
+    url = 'http://127.0.0.1:8000/deletef'
+    httpRequest.open('POST', url, true); //第二步：打开连接
+    httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");//设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
+    var obj = { froot:root}
+    httpRequest.send(JSON.stringify(obj));//发送请求 将情头体写在send中
+    httpRequest.onreadystatechange = function () {
+        if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+            var json = httpRequest.responseText;//获取到json字符串，还需解析
+            console.log(json)
+            window.location.reload();
+            }
+        };
+}
+
+
+};
+function runjar(event)
+{
+console.log(1);
+var r = confirm("运行前确认已有jar包")
+if(r == true)
+{
+    var httpRequest = new XMLHttpRequest();//第一步：创建需要的对象
+    url = 'http://127.0.0.1:8000/runjar'
+    var obj = { froot:1}
+    httpRequest.open('POST', url, true); //第二步：打开连接
+    httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");//设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
+    httpRequest.send(JSON.stringify(obj));//发送请求 将情头体写在send中
+    httpRequest.onreadystatechange = function () {
+        if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+            var json = httpRequest.responseText;//获取到json字符串，还需解析
+            console.log(json)
+            }
+        };
+}
+
+
+};
+function endjar(event)
+{
+console.log(1);
+var r = confirm("确定结束预览")
+if(r == true)
+{
+    var httpRequest = new XMLHttpRequest();//第一步：创建需要的对象
+    url = 'http://127.0.0.1:8000/endjar'
+    var obj = { froot:1}
+    httpRequest.open('POST', url, true); //第二步：打开连接
+    httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");//设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
+    httpRequest.send(JSON.stringify(obj));//发送请求 将情头体写在send中
+    httpRequest.onreadystatechange = function () {
+        if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+            var json = httpRequest.responseText;//获取到json字符串，还需解析
+            console.log(json)
+            }
+        };
+}
+
+
+};
+function makejar(event)
+{
+console.log(1);
+var r = confirm("确定生成")
+if(r == true)
+{
+    var httpRequest = new XMLHttpRequest();//第一步：创建需要的对象
+    url = 'http://127.0.0.1:8000/makejar'
+    var obj = { froot:1}
+    httpRequest.open('POST', url, true); //第二步：打开连接
+    httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");//设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
+    httpRequest.send(JSON.stringify(obj));//发送请求 将情头体写在send中
+    httpRequest.onreadystatechange = function () {
+        if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+            var json = httpRequest.responseText;//获取到json字符串，还需解析
+            console.log(json)
+            }
+        };
+}
+
+
+};
+function makedata(event)
+{
+console.log(1);
+var r = confirm("确定启动数据库")
+if(r == true)
+{
+    var httpRequest = new XMLHttpRequest();//第一步：创建需要的对象
+    url = 'http://127.0.0.1:8000/makedata'
+    var obj = { froot:1}
+    httpRequest.open('POST', url, true); //第二步：打开连接
+    httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");//设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
+    httpRequest.send(JSON.stringify(obj));//发送请求 将情头体写在send中
+    httpRequest.onreadystatechange = function () {
+        if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+            var json = httpRequest.responseText;//获取到json字符串，还需解析
+            console.log(json)
+            }
+        };
+}
+
+
+};
+function enddata(event)
+{
+console.log(1);
+var r = confirm("确定关闭数据库")
+if(r == true)
+{
+    var httpRequest = new XMLHttpRequest();//第一步：创建需要的对象
+    url = 'http://127.0.0.1:8000/enddata'
+    var obj = { froot:1}
+    httpRequest.open('POST', url, true); //第二步：打开连接
+    httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");//设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
+    httpRequest.send(JSON.stringify(obj));//发送请求 将情头体写在send中
+    httpRequest.onreadystatechange = function () {
+        if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+            var json = httpRequest.responseText;//获取到json字符串，还需解析
+            console.log(json)
+            }
+        };
+}
+
+
+};
+</script>
+</head>
+<body>
+
+<div class="container" style="width: 100%;">
+<div class="header" style="background-color:rgb(30,166,129);text-align:center">
+<h1 >{{pdetail.title}}</h1></div>
+    <div style="width: 100%;height: 150px;">
+    <a href="http://127.0.0.1:8000" style="text-decoration: none;color: black;margin-left: 10%">< < 返回实验列表</a>
+        <div style="width: 100%;text-align: center">
+            <h1 style="font-size: 20px">题目描述</h1>
+            <h style="white-space: pre-line">{{pdetail.detail}}</h>
+        </div>
+
+    </div>
+<div class="menu"style="background-color:lightgrey;height:900px;width:20%;float:left;text-align: center;margin-top: 20px;margin-left: 10%;">
+    {% if current %}
+        <br style="font-size: 30px">目录</br>
+        {% if parent %}
+            <a href="{{parent}}">上一级</a><br>
+        {% endif %}
+    {% if path %}
+        {% for i in path %}
+                <div style="margin-top: 10px">
+                <input name="checkbox" type="checkbox" onclick="deletef()" value="{{ i.url }}" />
+                <div style="width: 60%;display: inline-block">
+                <a href="/folder/{{ i.url }}" style="text-decoration:none;color: black">{{ i.name}}</a><br>
+                </div>
+                </div>
+        {% endfor %}
+    {% endif %}
+        {% if file %}
+            {% for f in file %}
+                {% csrf_token %}
+                <div style="margin-top: 10px">
+                <input name="checkbox" type="checkbox" onclick="deletef()" value="{{ i.url }}"/>
+                <div style="width: 60%;display: inline-block">
+                <button onclick="displayDate()" value="{{ f.url }}" style="border:none; background-color: lightgrey;outline:none;">{{ f.name }}</button>
+                </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+{% endif %}
+
+<div style="margin-top: 60px">
+    <button onclick="disp_prompt()" value="{{ parentu }}">新建文件夹</button>
+</div>
+<div style="margin-top: 2px">
+    <button onclick="disp_prfile()" value="{{ parentu }}">新建文件</button>
+</div>
+<div style="margin-top: 2px">
+    <button id="save" onclick="changecode()" value="">保存</button>
+</div>
+    <div style="margin-top: 2px">
+    <button  onclick="makejar()" value="">生成jar</button>
+</div>
+<div style="margin-top: 2px">
+    <button  onclick="runjar()" value="">运行jar</button>
+</div>
+<div style="margin-top: 2px">
+    <button  onclick="window.open('http://127.0.0.1:{{ port }}')" value="">预览</button>
+</div>
+<div style="margin-top: 2px">
+    <button  onclick="endjar()" value="">结束jar运行</button>
+</div>
+<div style="margin-top: 2px">
+    <button  onclick="makedata()" value="">启动数据库</button>
+</div>
+<div style="margin-top: 2px">
+    <button  onclick="enddata()" value="">关闭数据库</button>
+</div>
+</div>
+
+<div class="codeshow"style="background-color:#EEEEEE;height:900px;width:60%;float:left;margin-top: 20px;">
+        <pre id="code" class="ace_editor" style="min-height:880px;min-width:60% "><textarea class="ace_text-input">
+select your file
+        </textarea></pre>
+</div>
+
+        <script>
+            //初始化对象
+            editor = ace.edit("code");
+
+            //设置风格和语言（更多风格和语言，请到github上相应目录查看）
+            theme = "clouds"
+            language = "java"
+            editor.setTheme("ace/theme/" + theme);
+            editor.session.setMode("ace/mode/" + language);
+
+            //字体大小
+            editor.setFontSize(18);
+
+            //设置只读（true时只读，用于展示代码）
+            editor.setReadOnly(false);
+
+            //自动换行,设置为off关闭
+            editor.setOption("wrap", "free")
+
+            //启用提示菜单
+            ace.require("ace/ext/language_tools");
+            editor.setOptions({
+                    enableBasicAutocompletion: true,
+                    enableSnippets: true,
+                    enableLiveAutocompletion: true
+                });
+        </script>
+
+<div id="footer" style="background-color:#FFA500;clear:both;text-align:center;margin-top: 10px">
+版权 © xd.com</div>
+
+</div>
+</body>
+</html>
+

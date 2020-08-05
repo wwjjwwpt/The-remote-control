@@ -1,0 +1,630 @@
+[30/Jul/2020 10:56:04] "GET / HTTP/1.1" 200 2173
+[30/Jul/2020 10:56:04] "GET /static/css/menu.css HTTP/1.1" 304 0
+[30/Jul/2020 10:56:05] "GET /problem/1 HTTP/1.1" 301 0
+Internal Server Error: /problem/1/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ubuntu/django/ftp/sample/views.py", line 22, in index
+    ps = os.listdir(current)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ubuntu/exp/first-app-by-maven'
+[30/Jul/2020 10:56:05] "GET /problem/1/ HTTP/1.1" 500 63966
+Not Found: /favicon.ico
+[30/Jul/2020 10:56:06] "GET /favicon.ico HTTP/1.1" 404 3407
+[30/Jul/2020 10:58:40] "GET / HTTP/1.1" 200 2173
+[30/Jul/2020 10:58:41] "GET /problem/1/ HTTP/1.1" 200 14444
+[30/Jul/2020 10:58:54] "GET /problem/1/ HTTP/1.1" 200 14444
+[30/Jul/2020 10:59:11] "GET /problem/2 HTTP/1.1" 301 0
+[30/Jul/2020 10:59:11] "GET /problem/2/ HTTP/1.1" 200 14463
+[30/Jul/2020 10:59:23] "GET /problem/2/ HTTP/1.1" 200 14463
+Not Found: /favicon.ico
+[30/Jul/2020 10:59:24] "GET /favicon.ico HTTP/1.1" 404 3407
+[30/Jul/2020 11:33:01] "GET / HTTP/1.1" 200 2173
+[30/Jul/2020 11:33:01] "GET /static/css/menu.css HTTP/1.1" 304 0
+[30/Jul/2020 11:33:04] "GET /problem/1/ HTTP/1.1" 200 14444
+[30/Jul/2020 11:33:08] "GET /problem/1/ HTTP/1.1" 200 14444
+[30/Jul/2020 11:33:11] "GET / HTTP/1.1" 200 2173
+[30/Jul/2020 11:33:11] "GET /static/css/menu.css HTTP/1.1" 200 1664
+[30/Jul/2020 11:33:13] "GET /problem/2 HTTP/1.1" 301 0
+[30/Jul/2020 11:33:13] "GET /problem/2/ HTTP/1.1" 200 14463
+[30/Jul/2020 11:33:17] "GET / HTTP/1.1" 200 2173
+[30/Jul/2020 11:33:18] "GET /problem/1 HTTP/1.1" 301 0
+[30/Jul/2020 11:33:18] "GET /problem/1/ HTTP/1.1" 200 14444
+Sending build context to Docker daemon  16.67MB
+Step 1/6 : FROM java:8
+8: Pulling from library/java
+5040bd298390: Pulling fs layer
+fce5728aad85: Pulling fs layer
+76610ec20bf5: Pulling fs layer
+60170fec2151: Pulling fs layer
+e98f73de8f0d: Pulling fs layer
+11f7af24ed9c: Pulling fs layer
+49e2d6393f32: Pulling fs layer
+bb9cdec9c7f3: Pulling fs layer
+60170fec2151: Waiting
+e98f73de8f0d: Waiting
+11f7af24ed9c: Waiting
+49e2d6393f32: Waiting
+bb9cdec9c7f3: Waiting
+5040bd298390: Verifying Checksum
+5040bd298390: Download complete
+5040bd298390: Pull complete
+60170fec2151: Verifying Checksum
+60170fec2151: Download complete
+e98f73de8f0d: Verifying Checksum
+e98f73de8f0d: Download complete
+11f7af24ed9c: Verifying Checksum
+11f7af24ed9c: Download complete
+76610ec20bf5: Verifying Checksum
+76610ec20bf5: Download complete
+bb9cdec9c7f3: Verifying Checksum
+bb9cdec9c7f3: Download complete
+fce5728aad85: Verifying Checksum
+fce5728aad85: Download complete
+fce5728aad85: Pull complete
+76610ec20bf5: Pull complete
+60170fec2151: Pull complete
+e98f73de8f0d: Pull complete
+11f7af24ed9c: Pull complete
+49e2d6393f32: Verifying Checksum
+49e2d6393f32: Download complete
+49e2d6393f32: Pull complete
+bb9cdec9c7f3: Pull complete
+Digest: sha256:c1ff613e8ba25833d2e1940da0940c3824f03f802c449f3d1815a66b7f8c0e9d
+Status: Downloaded newer image for java:8
+ ---> d23bdf5b1b1b
+Step 2/6 : MAINTAINER wjw <553060364@qq.com>
+ ---> Running in 330cbdca6126
+Removing intermediate container 330cbdca6126
+ ---> 3f07e1aaceb4
+Step 3/6 : VOLUME /tmp
+ ---> Running in 0b4739acb69c
+Removing intermediate container 0b4739acb69c
+ ---> f95bf76529e8
+Step 4/6 : ADD first-app-by-maven-1.0.0-SNAPSHOT.jar app.jar
+ ---> 4373834d5be2
+Step 5/6 : RUN bash -c 'touch /app.jar'
+ ---> Running in a91894f7671c
+Removing intermediate container a91894f7671c
+ ---> 3e6f918d0d35
+Step 6/6 : ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+ ---> Running in 03870e1e4200
+Removing intermediate container 03870e1e4200
+ ---> 6d96c9cee6d6
+Successfully built 6d96c9cee6d6
+Successfully tagged first-app1:latest
+0d1ede916514c949760054a6923fdb412c5c7777d6324eab66b72b881e752a72
+[30/Jul/2020 11:35:19] "POST /runjar HTTP/1.1" 200 7
+[30/Jul/2020 11:37:13] "GET /problem/1/ HTTP/1.1" 200 14444
+[30/Jul/2020 11:42:53] "GET /problem/1/ HTTP/1.1" 200 14445
+Sending build context to Docker daemon  16.67MB
+Step 1/6 : FROM java:8
+ ---> d23bdf5b1b1b
+Step 2/6 : MAINTAINER wjw <553060364@qq.com>
+ ---> Using cache
+ ---> 3f07e1aaceb4
+Step 3/6 : VOLUME /tmp
+ ---> Using cache
+ ---> f95bf76529e8
+Step 4/6 : ADD first-app-by-maven-1.0.0-SNAPSHOT.jar app.jar
+ ---> Using cache
+ ---> 4373834d5be2
+Step 5/6 : RUN bash -c 'touch /app.jar'
+ ---> Using cache
+ ---> 3e6f918d0d35
+Step 6/6 : ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+ ---> Using cache
+ ---> 6d96c9cee6d6
+Successfully built 6d96c9cee6d6
+Successfully tagged first-app1:latest
+4dd29c87bb3d4874676010a1066711e5dcc71895466098a4b60ebeb2e902dc97
+[30/Jul/2020 11:44:28] "POST /runjar HTTP/1.1" 200 7
+[30/Jul/2020 11:54:49] "GET /problem/1/ HTTP/1.1" 200 14445
+Sending build context to Docker daemon  16.67MB
+Step 1/6 : FROM java:11
+manifest for java:11 not found: manifest unknown: manifest unknown
+Unable to find image 'first-app1:latest' locally
+docker: Error response from daemon: pull access denied for first-app1, repository does not exist or may require 'docker login': denied: requested access to the resource is denied.
+See 'docker run --help'.
+[30/Jul/2020 11:55:05] "POST /runjar HTTP/1.1" 200 7
+[30/Jul/2020 12:09:42] "GET /problem/1/ HTTP/1.1" 200 14445
+Sending build context to Docker daemon  16.67MB
+Step 1/6 : FROM scottyengineering/java11
+ ---> 487734bfc408
+Step 2/6 : MAINTAINER wjw <553060364@qq.com>
+ ---> Running in f6123b7857a9
+Removing intermediate container f6123b7857a9
+ ---> 0408f8482161
+Step 3/6 : VOLUME /tmp
+ ---> Running in c5b3a397389d
+Removing intermediate container c5b3a397389d
+ ---> fc7ae0be0c07
+Step 4/6 : ADD first-app-by-maven-1.0.0-SNAPSHOT.jar app.jar
+ ---> 1b8af60c25de
+Step 5/6 : RUN bash -c 'touch /app.jar'
+ ---> Running in a06861480ae3
+Removing intermediate container a06861480ae3
+ ---> 01be4cd80c9f
+Step 6/6 : ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+ ---> Running in 743461a4deb0
+Removing intermediate container 743461a4deb0
+ ---> 3bea04f83a24
+Successfully built 3bea04f83a24
+Successfully tagged first-app1:latest
+a03e24ce7c96f55cff6b00d3660cf75cad266d0fda428d0dc93b0bfa1e32223a
+[30/Jul/2020 12:09:50] "POST /runjar HTTP/1.1" 200 7
+a03e24ce7c96
+exciting_snyder
+Error: No such container: a03e24ce7c96
+Error: No such container: first-app1
+Error: No such container: java -Djava.securit…
+Error: No such container: About
+Error: No such container: a
+Error: No such container: minute
+Error: No such container: ago
+Error: No such container: Exited
+Error: No such container: (143)
+Error: No such container: Less
+Error: No such container: than
+Error: No such container: a
+Error: No such container: second
+Error: No such container: ago
+Untagged: first-app1:latest
+Deleted: sha256:3bea04f83a24783f5e084253e3d9a75be9537dc4131e014b90034c01e0a217e1
+Deleted: sha256:01be4cd80c9f5ba9db7c09c10d81146768df763f96de063ec4b6a7bc1e8e451b
+Deleted: sha256:caf36e26f866ed81e6d391543958b904b24c3f86db41085ef04123e2f81d4c47
+Deleted: sha256:1b8af60c25de6ea4895240428cfe1e40710744ca8246b4355b289ba30c68ae04
+Deleted: sha256:9eeab94bd6524d143a37c86b4eb2b148b5607dbeca3b25d9a7cd15e5beb5954c
+Deleted: sha256:fc7ae0be0c074be871245d2e539d60e6db880a3eaf25a223640d2f1de580e9e4
+Deleted: sha256:0408f8482161f57934c715046a7c456169de8780543b171e5ce42cab2bc24899
+Error: No such image: latest
+Error: No such image: 3bea04f83a24
+Error response from daemon: invalid reference format: repository name must be lowercase
+Error: No such image: a
+Error: No such image: minute
+Error: No such image: ago
+Error response from daemon: invalid reference format: repository name must be lowercase
+[30/Jul/2020 12:11:33] "POST /endjar HTTP/1.1" 200 7
+Unable to find image 'mysql:5.7.26' locally
+5.7.26: Pulling from library/mysql
+0a4690c5d889: Pulling fs layer
+98aa2fc6cbeb: Pulling fs layer
+0777e6eb0e6f: Pulling fs layer
+2464189c041c: Pulling fs layer
+b45df9dc827d: Pulling fs layer
+b42b00086160: Pulling fs layer
+bb93567627c7: Pulling fs layer
+48acc32b4863: Pulling fs layer
+6257d2da4815: Pulling fs layer
+1cd5ed3b2653: Pulling fs layer
+f4ba7ff24ae9: Pulling fs layer
+2464189c041c: Waiting
+b45df9dc827d: Waiting
+b42b00086160: Waiting
+bb93567627c7: Waiting
+48acc32b4863: Waiting
+6257d2da4815: Waiting
+1cd5ed3b2653: Waiting
+f4ba7ff24ae9: Waiting
+98aa2fc6cbeb: Verifying Checksum
+98aa2fc6cbeb: Download complete
+2464189c041c: Verifying Checksum
+2464189c041c: Download complete
+0777e6eb0e6f: Verifying Checksum
+0777e6eb0e6f: Download complete
+b45df9dc827d: Verifying Checksum
+b45df9dc827d: Download complete
+bb93567627c7: Verifying Checksum
+bb93567627c7: Download complete
+48acc32b4863: Verifying Checksum
+48acc32b4863: Download complete
+b42b00086160: Verifying Checksum
+b42b00086160: Download complete
+1cd5ed3b2653: Verifying Checksum
+1cd5ed3b2653: Download complete
+f4ba7ff24ae9: Verifying Checksum
+f4ba7ff24ae9: Download complete
+6257d2da4815: Verifying Checksum
+6257d2da4815: Download complete
+0a4690c5d889: Verifying Checksum
+0a4690c5d889: Download complete
+0a4690c5d889: Pull complete
+98aa2fc6cbeb: Pull complete
+0777e6eb0e6f: Pull complete
+2464189c041c: Pull complete
+b45df9dc827d: Pull complete
+b42b00086160: Pull complete
+bb93567627c7: Pull complete
+48acc32b4863: Pull complete
+6257d2da4815: Pull complete
+1cd5ed3b2653: Pull complete
+f4ba7ff24ae9: Pull complete
+Digest: sha256:bdee7a98276ccf377d2c00b8ceaa9f65455a9376481467bbcc3d1e6b662dac5d
+Status: Downloaded newer image for mysql:5.7.26
+91466f25293ce39212177f332e5f50636407f07c20cb332ea6d1ddc51e6e0aa2
+[30/Jul/2020 12:15:47] "POST /makedata HTTP/1.1" 200 1
+[30/Jul/2020 12:19:11] "GET / HTTP/1.1" 200 2173
+[30/Jul/2020 12:19:11] "GET /static/css/menu.css HTTP/1.1" 304 0
+31902:C 30 Jul 20:28:28.689 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+31902:C 30 Jul 20:28:28.689 # Redis version=4.0.9, bits=64, commit=00000000, modified=0, pid=31902, just started
+31902:C 30 Jul 20:28:28.689 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+31902:M 30 Jul 20:28:28.689 # Creating Server TCP listening socket *:6379: bind: Address already in use
+[30/Jul/2020 12:44:04] "GET / HTTP/1.1" 200 2173
+Invalid HTTP_HOST header: 'iZwz9h70iv04n8ofakhlmcZ:8000'. You may need to add 'izwz9h70iv04n8ofakhlmcz' to ALLOWED_HOSTS.
+[30/Jul/2020 12:45:45] "GET / HTTP/1.1" 400 57927
+Invalid HTTP_HOST header: 'www.baidu.com'. You may need to add 'www.baidu.com' to ALLOWED_HOSTS.
+[30/Jul/2020 14:24:12] "GET http://www.baidu.com/cache/global/img/gs.gif HTTP/1.1" 400 58635
+Invalid HTTP_HOST header: 'www.baidu.com'. You may need to add 'www.baidu.com' to ALLOWED_HOSTS.
+[30/Jul/2020 16:23:59] "GET http://www.baidu.com/cache/global/img/gs.gif HTTP/1.1" 400 58632
+Invalid HTTP_HOST header: 'ip.ws.126.net:443'. You may need to add 'ip.ws.126.net' to ALLOWED_HOSTS.
+[30/Jul/2020 16:31:19] "CONNECT ip.ws.126.net:443 HTTP/1.1" 400 58262
+[30/Jul/2020 23:36:53] code 400, message Bad request syntax ('\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03ÏoãMàè\x9dI\x90\x01]V/>\x00ò\xad%µ¼\x1eU~k?\x95"½çÈ\x9a\x14 Ã<ùDÒê#%¡ë\x115#1ÌAn¾Ü\x14ÿðó®T;\x99\x8f5~#%\x00&À/À0À+À,Ì¨Ì©À\x13À\tÀ\x14À')
+[30/Jul/2020 23:36:53] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+Invalid HTTP_HOST header: 'www.baidu.com'. You may need to add 'www.baidu.com' to ALLOWED_HOSTS.
+[31/Jul/2020 02:06:45] "GET http://www.baidu.com/cache/global/img/gs.gif HTTP/1.1" 400 58632
+[31/Jul/2020 02:26:40] code 400, message Bad request syntax ('\x00\x00\x00TZ\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x04\x00(Á\x00\x00\x00\x00\x12\x00¨À\x00àLºUÐ\x00\x00tsXrcsXYs9\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
+[31/Jul/2020 02:26:40] "   TZ           (Á     ¨À àLºUÐ  tsXrcsXYs9                                      " 400 -
+----------------------------------------
+Exception happened during processing of request from ('117.159.36.210', 52079)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/usr/local/lib/python3.6/dist-packages/django/core/servers/basehttp.py", line 139, in handle
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[31/Jul/2020 06:01:44] "GET / HTTP/1.1" 200 2173
+[31/Jul/2020 06:57:53] code 400, message Bad request syntax ('\x00\x00\x00TZ\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x04\x010I\x00\x00\x00\x00\x80\x0b¨À\x00\x0c)t F\x07\x00tsXrcsXYs9\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00bbXcsXctst\x00\x00\x00\x00\x00\x00')
+[31/Jul/2020 06:57:53] "   TZ          0I    ¨À )t F tsXrcsXYs9                      bbXcsXctst      " 400 -
+[31/Jul/2020 06:57:53] "GET / HTTP/1.1" 200 2173
+[31/Jul/2020 07:50:02] "GET / HTTP/1.1" 200 2173
+[31/Jul/2020 10:08:31] "GET /static/css/menu.css HTTP/1.1" 304 0
+Not Found: /favicon.ico
+[31/Jul/2020 10:08:31] "GET /favicon.ico HTTP/1.1" 404 3407
+[31/Jul/2020 10:55:51] code 400, message Bad request syntax ('\x03\x00\x00\x13\x0eà\x00\x00\x00\x00\x00\x01\x00\x08\x00\x03\x00\x00\x00')
+[31/Jul/2020 10:55:51] "  à          " 400 -
+Invalid HTTP_HOST header: 'www.baidu.com'. You may need to add 'www.baidu.com' to ALLOWED_HOSTS.
+[31/Jul/2020 11:48:35] "GET http://www.baidu.com/cache/global/img/gs.gif HTTP/1.1" 400 58632
+Invalid HTTP_HOST header: 'www.baidu.com'. You may need to add 'www.baidu.com' to ALLOWED_HOSTS.
+[31/Jul/2020 11:48:35] "GET http://www.baidu.com/cache/global/img/gs.gif HTTP/1.1" 400 58632
+Invalid HTTP_HOST header: '112.124.42.80:63435'. You may need to add '112.124.42.80' to ALLOWED_HOSTS.
+[31/Jul/2020 12:41:50] "HEAD http://112.124.42.80:63435/ HTTP/1.1" 400 58923
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 30, 2020 - 10:50:37
+Django version 2.0, using settings 'ftp.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+src
+target
+{'pdetail': {'pid': '1', 'sid': '实验一', 'title': 'javaspringboot入门', 'detail': '入门springboot并且在123路由下输出index\n数据库账号:root\n数据库密码：123456\n端口:127.0.0.1:3307'}, 'current': '/home/ubuntu/exp/first-app-by-maven', 'path': [<sample.models.PathItem object at 0x7f8a6d0ebe48>, <sample.models.PathItem object at 0x7f8a6d0ebd68>], 'file': [<sample.models.FileItem object at 0x7f8a6d0ebf60>], 'parentu': '/'}
+src
+target
+{'pdetail': {'pid': '1', 'sid': '实验一', 'title': 'javaspringboot入门', 'detail': '入门springboot并且在123路由下输出index\n数据库账号:root\n数据库密码：123456\n端口:127.0.0.1:3307'}, 'current': '/home/ubuntu/exp/first-app-by-maven', 'path': [<sample.models.PathItem object at 0x7f8a6d0732e8>, <sample.models.PathItem object at 0x7f8a6d0731d0>], 'file': [<sample.models.FileItem object at 0x7f8a6d073828>], 'parentu': '/'}
+src
+target
+{'pdetail': {'pid': '2', 'sid': '实验二', 'title': 'javaspring连接mysql', 'detail': '连接数据库并且读取向数据库中插入数据并且读取\n数据库账号:root\n数据库密码：123456\n端口:127.0.0.1:3307'}, 'current': '/home/ubuntu/exp/first-app-by-maven', 'path': [<sample.models.PathItem object at 0x7f8a6d0e5d68>, <sample.models.PathItem object at 0x7f8a6d0e5518>], 'file': [<sample.models.FileItem object at 0x7f8a6d0e5a90>], 'parentu': '/'}
+src
+target
+{'pdetail': {'pid': '2', 'sid': '实验二', 'title': 'javaspring连接mysql', 'detail': '连接数据库并且读取向数据库中插入数据并且读取\n数据库账号:root\n数据库密码：123456\n端口:127.0.0.1:3307'}, 'current': '/home/ubuntu/exp/first-app-by-maven', 'path': [<sample.models.PathItem object at 0x7f8a6d0736d8>, <sample.models.PathItem object at 0x7f8a6d073630>], 'file': [<sample.models.FileItem object at 0x7f8a6d073780>], 'parentu': '/'}
+src
+target
+{'pdetail': {'pid': '1', 'sid': '实验一', 'title': 'javaspringboot入门', 'detail': '入门springboot并且在123路由下输出index\n数据库账号:root\n数据库密码：123456\n端口:127.0.0.1:3307'}, 'current': '/home/ubuntu/exp/first-app-by-maven', 'path': [<sample.models.PathItem object at 0x7f8a6d0e5828>, <sample.models.PathItem object at 0x7f8a6d0e59e8>], 'file': [<sample.models.FileItem object at 0x7f8a6d0e5978>], 'parentu': '/'}
+src
+target
+{'pdetail': {'pid': '1', 'sid': '实验一', 'title': 'javaspringboot入门', 'detail': '入门springboot并且在123路由下输出index\n数据库账号:root\n数据库密码：123456\n端口:127.0.0.1:3307'}, 'current': '/home/ubuntu/exp/first-app-by-maven', 'path': [<sample.models.PathItem object at 0x7f8a6d32cc18>, <sample.models.PathItem object at 0x7f8a6d32ce48>], 'file': [<sample.models.FileItem object at 0x7f8a6d32c860>], 'parentu': '/'}
+src
+target
+{'pdetail': {'pid': '2', 'sid': '实验二', 'title': 'javaspring连接mysql', 'detail': '连接数据库并且读取向数据库中插入数据并且读取\n数据库账号:root\n数据库密码：123456\n端口:127.0.0.1:3307'}, 'current': '/home/ubuntu/exp/first-app-by-maven', 'path': [<sample.models.PathItem object at 0x7f8a6d079cc0>, <sample.models.PathItem object at 0x7f8a6d0793c8>], 'file': [<sample.models.FileItem object at 0x7f8a6d079668>], 'parentu': '/'}
+src
+target
+{'pdetail': {'pid': '1', 'sid': '实验一', 'title': 'javaspringboot入门', 'detail': '入门springboot并且在123路由下输出index\n数据库账号:root\n数据库密码：123456\n端口:127.0.0.1:3307'}, 'current': '/home/ubuntu/exp/first-app-by-maven', 'path': [<sample.models.PathItem object at 0x7f8a6d0eb400>, <sample.models.PathItem object at 0x7f8a6d0ebac8>], 'file': [<sample.models.FileItem object at 0x7f8a6d0eb048>], 'parentu': '/'}
+src
+target
+{'pdetail': {'pid': '1', 'sid': '实验一', 'title': 'javaspringboot入门', 'detail': '入门springboot并且在123路由下输出index\n数据库账号:root\n数据库密码：123456\n端口:127.0.0.1:3307'}, 'current': '/home/ubuntu/exp/first-app-by-maven', 'path': [<sample.models.PathItem object at 0x7f8a6d0eb6a0>, <sample.models.PathItem object at 0x7f8a6d0ebf98>], 'file': [<sample.models.FileItem object at 0x7f8a6d0eb080>], 'parentu': '/'}
+src
+target
+{'pdetail': {'pid': '1', 'sid': '实验一', 'title': 'javaspringboot入门', 'detail': '入门springboot并且在123路由下输出index\n数据库账号:root\n数据库密码：123456\n端口:127.0.0.1:3307'}, 'current': '/home/ubuntu/exp/first-app-by-maven', 'path': [<sample.models.PathItem object at 0x7f8a6d0ebcf8>, <sample.models.PathItem object at 0x7f8a6d0ebd30>], 'file': [<sample.models.FileItem object at 0x7f8a6d0eb0b8>], 'parentu': '/'}
+src
+target
+{'pdetail': {'pid': '1', 'sid': '实验一', 'title': 'javaspringboot入门', 'detail': '入门springboot并且在123路由下输出index\n数据库账号:root\n数据库密码：123456\n端口:127.0.0.1:3307'}, 'current': '/home/ubuntu/exp/first-app-by-maven', 'path': [<sample.models.PathItem object at 0x7f8a6d073c18>, <sample.models.PathItem object at 0x7f8a6d0737f0>], 'file': [<sample.models.FileItem object at 0x7f8a6d073b70>], 'parentu': '/'}
+src
+target
+{'pdetail': {'pid': '1', 'sid': '实验一', 'title': 'javaspringboot入门', 'detail': '入门springboot并且在123路由下输出index\n数据库账号:root\n数据库密码：123456\n端口:127.0.0.1:3307'}, 'current': '/home/ubuntu/exp/first-app-by-maven', 'path': [<sample.models.PathItem object at 0x7f8a6d06f3c8>, <sample.models.PathItem object at 0x7f8a6d06f898>], 'file': [<sample.models.FileItem object at 0x7f8a6d06ff28>], 'parentu': '/'}
+0
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ubuntu/django/ftp/sample/views.py", line 12, in munue
+    result = requests.get(url).content.decode("utf-8")
+NameError: name 'requests' is not defined
+[31/Jul/2020 13:18:11] "GET / HTTP/1.1" 500 62549
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 31, 2020 - 13:17:40
+Django version 2.0, using settings 'ftp.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[31/Jul/2020 13:18:30] "GET / HTTP/1.1" 200 2173
+[31/Jul/2020 13:18:30] "GET /static/css/menu.css HTTP/1.1" 304 0
+[31/Jul/2020 13:18:55] "GET / HTTP/1.1" 200 2173
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 31, 2020 - 13:18:28
+Django version 2.0, using settings 'ftp.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[]<!--not cached-->
+
+
+[]<!--not cached-->
+
+
+[31/Jul/2020 13:19:59] "GET / HTTP/1.1" 200 2173
+[31/Jul/2020 13:20:01] "GET / HTTP/1.1" 200 2173
+[31/Jul/2020 13:20:33] "GET / HTTP/1.1" 200 2173
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 31, 2020 - 13:19:56
+Django version 2.0, using settings 'ftp.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+[]<!--not cached-->
+
+
+123
+[]<!--not cached-->
+
+
+123
+[]<!--not cached-->
+
+
+123
+[31/Jul/2020 13:22:55] "GET / HTTP/1.1" 200 2173
+Invalid HTTP_HOST header: 'pv.sohu.com'. You may need to add 'pv.sohu.com' to ALLOWED_HOSTS.
+[31/Jul/2020 14:06:42] "GET /cityjson?ie=utf-8 HTTP/1.1" 400 58276
+[31/Jul/2020 14:06:51] code 400, message Bad request syntax ('\x05\x01\x00')
+[31/Jul/2020 14:06:51] " " 400 -
+[31/Jul/2020 14:23:45] "GET / HTTP/1.1" 200 3480
+[31/Jul/2020 14:23:45] "GET /static/css/menu.css HTTP/1.1" 304 0
+[31/Jul/2020 14:25:22] "GET / HTTP/1.1" 200 3499
+[31/Jul/2020 14:25:23] "GET / HTTP/1.1" 200 3499
+[31/Jul/2020 14:25:24] "GET / HTTP/1.1" 200 3499
+[31/Jul/2020 14:26:03] "GET / HTTP/1.1" 200 3534
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/django/template/base.py", line 475, in parse
+    compile_func = self.tags[command]
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ubuntu/django/ftp/sample/views.py", line 18, in munue
+    return render(request, 'mune.html', context_dic)
+  File "/usr/local/lib/python3.6/dist-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/engine.py", line 144, in get_template
+    template, origin = self.find_template(template_name)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/engine.py", line 126, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/loaders/base.py", line 30, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/usr/local/lib/python3.6/dist-packages/django/template/base.py", line 160, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/usr/local/lib/python3.6/dist-packages/django/template/base.py", line 198, in compile_nodelist
+    return parser.parse()
+  File "/usr/local/lib/python3.6/dist-packages/django/template/base.py", line 477, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/base.py", line 539, in invalid_block_tag
+    "or load this tag?" % (token.lineno, command)
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 44: 'static'. Did you forget to register or load this tag?
+[31/Jul/2020 14:27:31] "GET / HTTP/1.1" 500 136675
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/django/template/base.py", line 475, in parse
+    compile_func = self.tags[command]
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ubuntu/django/ftp/sample/views.py", line 18, in munue
+    return render(request, 'mune.html', context_dic)
+  File "/usr/local/lib/python3.6/dist-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/engine.py", line 144, in get_template
+    template, origin = self.find_template(template_name)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/engine.py", line 126, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/loaders/base.py", line 30, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/usr/local/lib/python3.6/dist-packages/django/template/base.py", line 160, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/usr/local/lib/python3.6/dist-packages/django/template/base.py", line 198, in compile_nodelist
+    return parser.parse()
+  File "/usr/local/lib/python3.6/dist-packages/django/template/base.py", line 477, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/base.py", line 539, in invalid_block_tag
+    "or load this tag?" % (token.lineno, command)
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 44: 'static'. Did you forget to register or load this tag?
+[31/Jul/2020 14:27:33] "GET / HTTP/1.1" 500 136675
+[31/Jul/2020 14:28:15] "GET / HTTP/1.1" 200 5096
+[31/Jul/2020 14:29:38] "GET / HTTP/1.1" 200 2645
+[31/Jul/2020 14:31:52] "GET / HTTP/1.1" 200 5046
+[31/Jul/2020 14:31:54] "GET / HTTP/1.1" 200 5046
+[31/Jul/2020 14:32:28] "GET / HTTP/1.1" 200 5046
+[31/Jul/2020 14:32:29] "GET / HTTP/1.1" 200 5046
+[31/Jul/2020 14:32:35] "GET / HTTP/1.1" 200 5085
+[31/Jul/2020 14:32:36] "GET / HTTP/1.1" 200 5085
+[31/Jul/2020 14:32:58] "GET / HTTP/1.1" 200 5085
+[31/Jul/2020 14:33:20] "GET / HTTP/1.1" 200 5085
+[31/Jul/2020 14:33:24] "GET / HTTP/1.1" 200 5085
+[31/Jul/2020 14:34:44] "GET / HTTP/1.1" 200 2172
+[31/Jul/2020 14:38:07] "GET / HTTP/1.1" 200 3063
+[31/Jul/2020 14:38:43] "GET / HTTP/1.1" 200 2194
+Not Found: /favicon.ico
+[31/Jul/2020 14:38:43] "GET /favicon.ico HTTP/1.1" 404 3407
+[31/Jul/2020 14:39:49] "GET / HTTP/1.1" 200 3013
+[31/Jul/2020 14:41:01] "GET / HTTP/1.1" 200 2999
+[31/Jul/2020 14:41:02] "GET / HTTP/1.1" 200 2999
+[31/Jul/2020 14:41:07] "GET / HTTP/1.1" 200 2999
+[31/Jul/2020 14:41:25] "GET / HTTP/1.1" 200 2991
+[31/Jul/2020 14:41:45] "GET / HTTP/1.1" 200 2173
+[31/Jul/2020 14:41:47] "GET / HTTP/1.1" 200 2173
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ubuntu/django/ftp/sample/views.py", line 18, in munue
+    return render(request, 'mune.html', context_dic)
+  File "/usr/local/lib/python3.6/dist-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/loader_tags.py", line 182, in render
+    template = context.template.engine.get_template(template_name)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/engine.py", line 144, in get_template
+    template, origin = self.find_template(template_name)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/engine.py", line 126, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/loaders/base.py", line 24, in get_template
+    contents = self.get_contents(origin)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/loaders/filesystem.py", line 23, in get_contents
+    with open(origin.name, encoding=self.engine.file_charset) as fp:
+IsADirectoryError: [Errno 21] Is a directory: '/home/ubuntu/django/ftp/sample/template'
+[31/Jul/2020 14:43:34] "GET / HTTP/1.1" 500 119810
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ubuntu/django/ftp/sample/views.py", line 18, in munue
+    return render(request, 'mune.html', context_dic)
+  File "/usr/local/lib/python3.6/dist-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/loader_tags.py", line 182, in render
+    template = context.template.engine.get_template(template_name)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/engine.py", line 144, in get_template
+    template, origin = self.find_template(template_name)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/engine.py", line 126, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/loaders/base.py", line 24, in get_template
+    contents = self.get_contents(origin)
+  File "/usr/local/lib/python3.6/dist-packages/django/template/loaders/filesystem.py", line 23, in get_contents
+    with open(origin.name, encoding=self.engine.file_charset) as fp:
+IsADirectoryError: [Errno 21] Is a directory: '/home/ubuntu/django/ftp/sample/template'
+[31/Jul/2020 14:43:36] "GET / HTTP/1.1" 500 119810
+[31/Jul/2020 14:43:46] "GET / HTTP/1.1" 200 3087
+[31/Jul/2020 14:44:43] "GET / HTTP/1.1" 200 3037
+[31/Jul/2020 14:47:27] "GET / HTTP/1.1" 200 2648
+[31/Jul/2020 15:11:11] "GET / HTTP/1.1" 200 2690
+[31/Jul/2020 15:14:10] "GET / HTTP/1.1" 200 2695
+[31/Jul/2020 17:33:31] "GET / HTTP/1.1" 200 2695
+Invalid HTTP_HOST header: 'www.baidu.com'. You may need to add 'www.baidu.com' to ALLOWED_HOSTS.
+[31/Jul/2020 21:30:25] "GET http://www.baidu.com/cache/global/img/gs.gif HTTP/1.1" 400 58632
+Invalid HTTP_HOST header: 'www.baidu.com'. You may need to add 'www.baidu.com' to ALLOWED_HOSTS.
+[31/Jul/2020 21:53:56] "GET http://www.baidu.com/cache/global/img/gs.gif HTTP/1.1" 400 58635
+[31/Jul/2020 22:08:15] code 400, message Bad request syntax ('\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03KT\x8eêº=cs:Ì\x0c\x8bë\x05Î\x8eQÃ\x92\x07\x1ea\x9f¤\x08\x1c\x92h2/Ë\x92 Ø½ãÈl\x8e\x02Ë·\x92\x13G\x90ÐÆ$Ú\x9e\x0b\x19T\x0eV\x00\x94sÐ\x1bõ¶Hw\x00&À/À0À+À,Ì¨Ì©À\x13À\tÀ\x14À')
+[31/Jul/2020 22:08:15] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[01/Aug/2020 00:30:37] "GET / HTTP/1.1" 200 2695
+[01/Aug/2020 04:51:01] "GET / HTTP/1.1" 200 2695
+[01/Aug/2020 05:45:14] "GET / HTTP/1.1" 200 2695
+[01/Aug/2020 05:45:14] "GET / HTTP/1.1" 200 2695
+Not Found: /cgi-bin/webproc
+[01/Aug/2020 05:45:14] "GET /cgi-bin/webproc HTTP/1.1" 404 3419
+Not Found: /webaccess/index.php
+[01/Aug/2020 05:45:14] "GET /webaccess/index.php HTTP/1.1" 404 3431
+Not Found: /HNAP1/
+[01/Aug/2020 05:45:15] "GET /HNAP1/ HTTP/1.1" 404 3392
+Not Found: /common/info.cgi
+[01/Aug/2020 05:45:15] "GET /common/info.cgi HTTP/1.1" 404 3419
+Not Found: /hnap/hnap_service
+[01/Aug/2020 05:45:15] "GET /hnap/hnap_service HTTP/1.1" 404 3425
+Not Found: /stssys.htm
+[01/Aug/2020 05:45:15] "GET /stssys.htm HTTP/1.1" 404 3404
+Not Found: /index.asp
+[01/Aug/2020 05:45:15] "GET /index.asp HTTP/1.1" 404 3401
+Not Found: /login.htm
+[01/Aug/2020 05:45:15] "GET /login.htm HTTP/1.1" 404 3401
+[01/Aug/2020 05:45:15] "GET / HTTP/1.1" 200 2695
+Not Found: /webpages/login.html
+[01/Aug/2020 05:45:16] "GET /webpages/login.html HTTP/1.1" 404 3431
+[01/Aug/2020 05:45:16] "GET / HTTP/1.1" 200 2695
+Not Found: /weblogin.htm
+[01/Aug/2020 05:45:16] "GET /weblogin.htm HTTP/1.1" 404 3410

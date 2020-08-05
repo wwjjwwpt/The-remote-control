@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/menu.css" />
+</head>
+<div style="margin-left: 70%">
+
+</div>
+    <div class="fav_list">
+    <div data-v-357a65ed="" class="fav_list_box">
+        <div  class="fav_list_title">
+            <h3 class="fav_list_title_h3">实验列表</h3>
+        </div>
+        {% for i in problem %}
+        <div  class="my_fav_con">
+            <div>
+                <ul  class="my_fav_list">
+                    <li class="my_fav_list_li" id="">
+                        <div  class="my_fav_list_a" href="" target="_blank">
+                            <a >{{i.pid}}</a>
+                            <a href="http://127.0.0.1:8000/problem/{{i.pid}}"style="margin-left: 20%;text-decoration:none;color: black">{{i.sid}}</a>
+                            <a href="http://127.0.0.1:8000/problem/{{i.pid}}" style=" margin-left: 20%;text-decoration:none;color: black">{{i.title}}</a>
+                        </div>
+                        <label class="my_fav_list_label">
+                            <a >2020-04-08</a>
+                        </label>
+                    </li>
+        {% endfor %}
+                </ul> <!---->
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+{% endblock %}
+</html>

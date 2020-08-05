@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}注册XDweb实验平台{% endblock %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+{% block content %}
+<div class='container'>
+{% for message in messages %}
+    <div class='alert alert-{{message.tags}}'>{{ message }}</div>
+{% endfor %}
+<div class='row'>
+    <div class='col-md-12'>
+        <div class='panel panel-default'>
+            <div class='panel-heading' align=center>
+            <h3>注册XDweb实验平台</h3>
+    </div>
+</div>
+
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <form class="form-signin" method="post">
+                <h1 class="h3 mb-3 font-weight-normal text-center">请填写注册信息</h1>
+                {% csrf_token %}
+                {{ form|crispy }}
+                <input class="btn btn-lg btn-primary" type="submit" value="{% trans '注 册' %}"/>
+            </form>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

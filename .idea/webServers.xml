@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="3d340bd9-d50b-4b73-bf55-92e5d0fdf4b0" name="ftp" url="http://222.25.188.1">
+        <fileTransfer host="222.25.188.1" port="20064" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="20064" />
+        </fileTransfer>
+      </webServer>
+      <webServer id="f3f5d74f-dabb-4336-a995-ada5b8551a94" name="alo" url="http://39.108.148.171">
+        <fileTransfer host="39.108.148.171" port="22" rootFolder="/home/ubuntu/django" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

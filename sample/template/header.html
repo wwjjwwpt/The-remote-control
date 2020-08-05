@@ -1,0 +1,41 @@
+<!-- header.html (ch10www project) -->
+<head>
+    <meta charset='utf-8'>
+    <title>{% block title %}{% endblock %}</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+</head>
+    <style>
+h1, h2, h3, h4, h5, p, div {
+    font-family: 微软雅黑;
+}
+</style>
+<body>
+<div>
+    <nav style="margin-left: 70%">
+        <div class='container-fluid'>
+            <div class='navbar-header'>
+            </div>
+            <ul class='nav navbar-nav'>
+                <li class='active'><a href='/'>Home</a></li>
+                    {% if username %}
+                    <li><a href='/userinfo'>{{ username }}</a></li>
+                    <li><a href='/logout'>注销</a></li>
+                    {% else %}
+                    <li><a href='/login'>登录</a></li>
+                    <li><a href='/accounts/register'>注册</a></li>
+                    {% endif %}
+                    <li><a href='/admin'>后台管理</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<div  style="background-color: rgb(30,166,129);text-align: center;height: 40px;width: 100%">
+    <a style="color: white">在线实验云平台</a>
+</div>
+</body>

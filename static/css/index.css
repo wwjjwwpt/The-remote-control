@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+.container{
+    width: 100%;
+}
+.header{
+    background-color:#61B0FF;
+    text-align:center
+}
+.menu{
+    background-color:#FFD700;
+    height:900px;
+    width:20%;
+    float:left;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 10%;
+}
+.codeshow{
+    background-color:#EEEEEE;
+    height:900px;
+    width:60%;
+    float:left;
+    margin-top: 20px;
+}
